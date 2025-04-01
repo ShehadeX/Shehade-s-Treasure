@@ -1,0 +1,750 @@
+html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container {
+    width: 100vw;
+    height: 400vh;
+    background-color: #fff;
+    display: flex;
+    /* flex 布局 */
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    overflow: visible;
+    position: static;
+    /* 确保itmes不会偏移 */
+}
+/* 设置主窗口container,用vw和vh 来实现动态缩放 */
+
+.box1 {
+    width: 100vw;
+    height: 50px;
+    background-color: #fff;
+    /* border:2px solid blue; */
+    display: flex;
+    justify-content: space-between;
+    /* 状态栏两端 */
+    align-items: center;
+    position: sticky;
+    /* 固定悬浮 */
+    top: 10px;
+    z-index: 999;
+    /* 防止覆盖 */
+    border-radius: 10px;
+
+}
+
+.box1-1 {
+    width: 50vw;
+    height: 30px;
+    display: flex;
+    font-size: 15px;
+    gap: 5px;
+    overflow-x: auto;
+    /* 主动截断防止压缩 */
+    scrollbar-width: none;
+    /* 这个不需要滚动 */
+}
+
+.box1-1::-webkit-scrollbar {
+    display: none;
+}
+/* 隐藏滚动，太长了，要是短一些就不会 */
+
+.items1 {
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    white-space: nowrap;
+    /* 不许换行 */
+    padding: 0 10px;
+    /* 贴边 */
+    flex-shrink: 0;
+}
+
+.box1-2 {
+    width: 30vw;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+    gap: 10px;
+    align-items: center;
+}
+
+.items2 {
+    padding: 0 5px;
+    flex-shrink: 0;
+}
+
+.loginbottom, .registbottom {
+    min-width: 30px;
+    padding: 0 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.loginbottom {
+    border: 2px solid #ccc;
+    background-color: #fff;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* 利用hover伪类制作悬停动画*/
+    /* 0.3s 刚刚好 */
+    /* 贝塞尔曲线抄的 https://segmentfault.com/a/1190000004618375 贼好用 先慢后快*/
+}
+
+.loginbottom:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(162, 89, 255, 0.2);
+}
+
+.registbottom {
+    border: 2px solid #ccc;
+    background-color: #940fba;
+    color: #fff;
+    margin-right: 30px;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.registbottom:hover {
+    transform: scale(1.08);
+    /* 放大 */
+    filter: brightness(110%);
+    /* 通过滤镜实现亮度提升 */
+}
+
+.box2 {
+    width: 100vw;
+    height: 200px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-container {
+    text-align: center;
+    max-width: 600px;
+    padding: 0 20px;
+    transition: transform 0.4s ease;
+    /* 添加迟缓效果，ease 属性 慢快慢 */
+}
+
+.text-container:hover {
+    transform: scale(1.02);
+    /* 同上，缩放 */
+}
+
+.text-container h1 {
+    font-size: 60px;
+    font-weight: 600;
+    padding-left: 40px;
+    margin: 0 0 12px 0;
+    color: #1a1a1a;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #70aeff, #be4eff);
+    /* 生成渐变，同时对角度改变125deg,实现斜向渐变效果 */
+    -webkit-background-clip: text;
+    /* 根据webkit 实现对背景白色的裁切，突出主体防止遮蔽 */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* 透明色填充背景渐变效果 */
+    display: inline-block;
+    margin: 0 4px;
+    transition: transform 0.3s ease;
+}
+
+.text-container:hover .gradient-text {
+    transform: scale(1.15) rotate(-3deg);
+    /* rotate 旋转增大文字，实现歪头效果*/
+}
+
+.text-container p {
+    font-size: 10px;
+    color: #666;
+    margin: 0 0 20px 0;
+    line-height: 1.5;
+    /* 直接通过字体来设计对应行宽高，为1.5倍 */
+}
+
+.start-design {
+    background-color: #a259ff;
+    color: #fff;
+    border: none;
+    padding: 6px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(162, 89, 255, 0.3);
+    /* 设置开始设计的阴影 */
+}
+
+.start-design:hover {
+    background-color: #8b4dda;
+    /* 悬浮变色 */
+}
+
+.box3 {
+    background: #fff;
+    padding: 40px 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    /* 渐变色外边框，基本没有什么效果，跟着教程写养成好习惯 */
+}
+
+.static-carousel-track {
+    /* 本来想要做成动态，但是发现这个太少了，不如在下面的公司进行展示，所以去这个名字 */
+    display: flex;
+    justify-content: space-evenly;
+    gap: 2vw;
+    padding: 0 8%;
+}
+
+.static-carousel-item {
+    flex: 0 0 calc(14.28% - 20px);
+    min-width: 140px;
+    max-width: 180px;
+    /* 交互式界面 */
+}
+
+.carousel-item:hover img {
+    transform: scale(1.03) rotate(0.8deg);
+    /* 在悬浮时，变大旋转 */
+}
+
+.card-image {
+    width: 160px;
+    height: 160px;
+    background: #f5f6fa;
+    padding: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 6px 16px rgba(192, 217, 255, 0.15);
+    /* 添加阴影 偏移 模糊1 浅蓝色 透明度0.15 */
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(2px 4px 6px rgba(167, 171, 250, 0.1));
+    /* 投影阴影，图片的特性 */
+}
+
+.card-title {
+    margin-top: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2d2d2d;
+    text-align: center;
+    letter-spacing: 0.5px;
+    /* 字体设置 */
+}
+
+.carousel-item:hover .card-image {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(162, 89, 255, 0.2);
+}
+
+.box3-5 {
+    /* 提前设置好了box1~4，但是忘记加中间的标语了，所以最后设一个3.5 */
+    background: linear-gradient(135deg, #f8f9ff, #ffffff);
+    /* 斜向线性渐变 */
+    padding: 40px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.template-banner {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* 上下无边距，左右自动设置 */
+    text-align: center;
+    /* 文字居中对齐 */
+}
+
+.template-title {
+    background: linear-gradient(135deg, #dcdcdc, #568eca, #ea70ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* 再次利用贝塞尔 先慢后快 */
+}
+
+.template-title:hover {
+    transform: scale(1.08);
+}
+
+.template-subtitle {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.box4 {
+    background: #fff;
+    padding: 40px 10%;
+}
+
+.waterfall-grid {
+    columns: 4 280px;
+    /* 瀑布流核心 ：columns 设置。仿照canva 设置四行，最小宽度280px,用于交互式界面，让浏览器自动分配*/
+    column-gap: 24px;
+    /* 设置间距 */
+
+}
+
+.column {
+    break-inside: avoid;
+    /* 防止元素被撕裂到两端 */
+    margin-bottom: 24px;
+    /* 设置底部编剧，和下面的box拉开差距 */
+}
+
+.template-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    margin-bottom: 24px;
+    transition: transform 0.3s ease;
+    /* 设置瀑布子元素 包含文字和图片*/
+}
+
+.image-container {
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    position: relative;
+    /* 图片子子元素 设为相对元素提供absolute 定位 */
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    vertical-align: bottom;
+    /* 自动图片设置，以适配不同的图片 */
+}
+
+.card-label {
+    padding: 16px;
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), #fff);
+    border-radius: 0 0 12px 12px;
+    /* 文字介绍页，我是真的不知道怎么将文字设置在图片里面，就先这样了，没时间了 */
+}
+
+.template-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(162, 89, 255, 0.15);
+}
+
+.box5 {
+    padding: 50px 0;
+    background: #fff;
+}
+
+.partners-title {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.carousel-container {
+    overflow: hidden;
+    /* 核心：当元素尺寸超出时，隐藏超出部分，防止超出容器 */
+    position: relative;
+    /* 准备使用绝对定位 */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carousel-track {
+    display: flex;
+    /* 纵向弹性布局，为轮播准备 */
+    animation: carousel-scroll 40s linear infinite;
+    /* 核心为所有的元素添加 carousel-scroll 动画，实现轮播，设置为40s,匀速变化，无限循环播放 */
+    width: calc(200px * 16);
+    /* 计算总长的宽度，这个跟着教程写的，和我的不符，但是其实没出bug就没事，以后再具体研究怎么查看宽度和设置合理的总长 */
+}
+
+.carousel-item {
+    flex: 0 0 200px;
+    padding: 0 30px;
+    opacity: 0.9;
+    /* 半透明实现高级感 */
+    transition: opacity 0.3s;
+}
+
+.company-logo {
+    width: 100%;
+    height: 60px;
+    object-fit: contain;
+    filter: grayscale(1);
+    /* 图片完全灰度,实现对彩色的照片1 的灰度模式*/
+    transition: all 0.3s;
+}
+
+.carousel-item:hover .company-logo {
+    filter: grayscale(0);
+    transform: scale(1.05);
+    opacity: 1;
+    /* 设置动画 */
+}
+
+.box6 {
+    background: #f8f9fa;
+    padding: 40px 5%;
+    border-top: 1px solid #e9ecef;
+    /* 顶部设置分割线分割 */
+}
+
+.grid-container {
+    display: grid;
+    /* 使用网格grid布局,实现表格的设计 */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    /* 设置自动根据宽度设置列数,并且根据minmax自动分配动态的fr空间 */
+    gap: 1px;
+    background: #e9ecef;
+    padding: 1px;
+    max-width: 1200px;
+    /* 适配不同屏幕 */
+    margin: 0 auto;
+}
+
+.grid-title {
+    grid-column: 1 / -1;
+    /* 标题占据左右两端 */
+    background: #fff;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #212529;
+    border-bottom: 2px solid #dee2e6;
+    margin: 0;
+}
+
+.grid-item {
+    background: #fff;
+    padding: 16px 20px;
+    font-size: 14px;
+    color: #495057;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.grid-item:hover {
+    background: #f8f9fa;
+    transform: translateX(4px);
+    box-shadow: 2px 0 0 #89c0ed;
+    /* 伪类设置蓝色阴影,实现提示 */
+}
+
+.grid-title:nth-of-type(1) { color: #e19e2a; }
+.grid-title:nth-of-type(2) { color: #7cb3e7; }
+.grid-title:nth-of-type(3) { color: #7b64a7; }
+/* 直接通过不同的标题,对整体进行样式选择.这里使用了样式选择器,刚学的就用上了 */
+
+.box7 {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #f8fbff, #eef4ff);
+}
+
+.subscription-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.subscription-header {
+    margin-bottom: 60px;
+}
+
+.subscription-title {
+    font-size: 2.5rem;
+    color: #2d2d2d;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.subscription-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 60px;
+    /* 分割以下的订阅按钮 */
+}
+
+.feature-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(162, 89, 255, 0.1);
+    /* 设置阴影,增加立体感 */
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    background: #f6f0ff;
+    border-radius: 50%;
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-img {
+    width: 40px;
+    height: 40px;
+}
+
+.feature-title {
+    font-size: 1.5rem;
+    color: #2d2d2d;
+    margin-bottom: 16px;
+}
+
+.feature-desc {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.subscription-cta {
+    /* 根据教程命名的,按钮一般都是这个名字,但不知道为什么 */
+    background: #a259ff;
+    color: #fff;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    /* 依照总体元素设置字体 */
+    cursor: pointer;
+    /* 当指针悬停的时候,设为手型,这个功能我很喜欢 */
+    transition: all 0.3s ease;
+    display: inline-flex;
+    /* 内联弹性布局 */
+    align-items: center;
+    gap: 12px;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    /* 向上移动,实现上浮,这个很细致,可以养成习惯 */
+    box-shadow: 0 12px 32px rgba(162, 89, 255, 0.2);
+}
+
+.subscription-cta:hover {
+    background: #8b4dda;
+    /* 通过颜色变深实现提示 */
+    padding: 16px 48px;
+    box-shadow: 0 8px 24px rgba(162, 89, 255, 0.3);
+}
+
+.subscription-cta:hover .arrow-icon {
+    transform: translateX(4px);
+}
+
+.arrow-icon {
+    transition: transform 0.2s ease;
+}
+/* 以下是跳转设置 */
+html {
+    scroll-behavior: smooth;
+}
+
+.box8-floating {
+    position: fixed;
+    /* 固定悬浮窗口 */
+    right: 30px;
+    bottom: 50%;
+    transform: translateY(50%);
+    /* 垂直居中 */
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    /* 阴影 */
+    backdrop-filter: blur(5px);
+    /* 用filter 实现毛玻璃 */
+    padding: 16px;
+}
+
+.arrow-up, .arrow-down {
+    /* 单独设这两个按钮 */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #6c757d;
+    text-decoration: none;
+    border-radius: 50%;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.arrow-up:hover {
+    background: #f8f9fa;
+    color: #a259ff;
+    transform: translateY(-2px);
+}
+
+.arrow-down:hover {
+    background: #f8f9fa;
+    color: #a259ff;
+    transform: translateY(2px);
+}
+
+.box-end {
+    background: #000;
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.main-title .gradient-text {
+    font-family: 'Helvetica Neue', sans-serif;
+    /* 渐变色 */
+    font-size: 2.5rem;
+    font-weight: 700;
+    background-image: linear-gradient(90deg, #a259ff, #a259ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: background-image 0.5s ease;
+}
+
+.main-title:hover .gradient-text {
+    background-image: linear-gradient(90deg, #00f2fe, #4facfe);
+}
+
+.cta-button {
+    position: relative;
+    background: #a259ff;
+    color: #fff;
+    border: none;
+    padding: 16px 48px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cta-button .hover-effect {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    /* 悬停的时候进行变色,这个我很喜欢 */
+    transition: left 0.6s ease;
+}
+
+.cta-button:hover {
+    background: #8b4dda;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(162, 89, 255, 0.4);
+}
+
+.cta-button:hover .hover-effect {
+    left: 100%;
+}
+
+.main-title {
+    -webkit-font-smoothing: antialiased;
+    /* 启用抗锯齿 */
+}
+
+@media (max-width: 768px) {
+    .main-title .gradient-text {
+        font-size: 2rem;
+    }
+    
+    .cta-button {
+        padding: 14px 36px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .subscription-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-grid {
+        justify-content: center;
+    }
+    
+    .team-card {
+        flex: 0 1 100%;
+        max-width: 480px;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-item {
+        padding: 12px 16px;
+    }
+}
+
+@keyframes carousel-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-200px * 8)); }
+}
+
+@media (max-width: 768px) {
+    .carousel-item {
+        flex-basis: 150px;
+        padding: 0 20px;
+    }
+    .company-logo {
+        height: 40px;
+    }
+}
